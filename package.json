@@ -1,0 +1,29 @@
+{
+  "name": "star-rating",
+  "version": "0.1.0",
+  "description": "A Web Component that displays rating using stars. Number of stars is customizable and it supports fractions.",
+  "keywords": {
+    "web-components"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argelius/star-rating.git"
+  },
+  "author": "Andreas Argelius <andreas@argeli.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/argelius/star-rating/issues"
+  },
+  "homepage": "https://github.com/argelius/star-rating#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "browser-sync": "^2.10.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.0",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
