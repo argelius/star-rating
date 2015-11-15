@@ -36,7 +36,6 @@
           $q.all(promises)
             .then(
               function(movies) {
-                console.log(movies[0].data);
                 this.movies = movies.map(function(movie) { return movie.data; });
               }.bind(this),
               function(error) {
