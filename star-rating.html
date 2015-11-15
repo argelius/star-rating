@@ -1,0 +1,35 @@
+<!--
+Star Rating
+
+@element star-rating
+@demo https://argelius.github.io/star-rating/index.html
+-->
+<template>
+  <style>
+    :host {
+      cursor: default;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+      color: #ccd6dd;
+    }
+
+    span > span {
+      display: block;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      overflow: hidden;
+      color: #ffac33;
+    }
+  </style>
+</template>
+<script src="star-rating.js"></script>

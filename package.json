@@ -2,9 +2,9 @@
   "name": "star-rating",
   "version": "0.1.0",
   "description": "A Web Component that displays rating using stars. Number of stars is customizable and it supports fractions.",
-  "keywords": {
+  "keywords": [
     "web-components"
-  },
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

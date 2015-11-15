@@ -1,0 +1,60 @@
+<html ng-app="app">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Star Wars Ratings</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.17/webcomponents.min.js"></script>
+    <link rel="import" href="star-rating.html" async>
+
+    <style>
+      body {
+        font-size: 25px;
+      }
+    </style>
+
+    <script>
+      angular.module('app', [])
+        .controller('MovieController', function($http, $q) {
+          var imdbIds = [
+            'tt0120915',
+            'tt0121765',
+            'tt0121766',
+            'tt0076759',
+            'tt0080684',
+            'tt0086190',
+            'tt2488496'
+          ];
+
+          var promises = imdbIds.map(function(id) {
+            return $http.jsonp('http://www.omdbapi.com/?i=' + id + '&plot=short&r=json&callback=JSON_CALLBACK');
+          });
+
+          $q.all(promises)
+            .then(
+              function(movies) {
+                this.movies = movies.map(function(movie) { return movie.data; });;
+              }.bind(this),
+              function(error) {
+                alert('Unable to fetch movie data: ' + error);
+              }
+            )
+        });
+    </script>
+  </head>
+  <body ng-controller="MovieController as movies">
+    <h1>Star Wars Ratings</h1>
+
+    <div ng-repeat="movie in movies.movies">
+      <h2>{{ movie.Title }}</h2>
+      <img ng-src="{{ movie.Poster }}"></img>
+      <ul>
+        <li>Released {{ movie.Released }}</li>
+        <li>Written by {{ movie.Writer }}</li>
+        <li>Directed by {{ movie.Director }}</li>
+        <li>Rating: <star-rating max="10" ng-value="{{ movie.imdbRating }}"></star-rating> ({{ movie.imdbRating}})</li>
+      </ul>
+    </div>
+  </body>
+</html>
