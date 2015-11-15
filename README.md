@@ -17,7 +17,7 @@ You can check out a [demo here](http://argelius.github.io/star-rating/index.html
 Install it with `bower`:
 
 ```bash
-$ bower install star-rating
+$ bower install star-rating-tag
 ```
 
 or with `npm`:
