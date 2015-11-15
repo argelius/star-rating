@@ -90,7 +90,6 @@ class StarRating extends HTMLElement {
       p = value - i;
 
       if (p > 0 && p < 1) {
-        console.log(p);
         innerStar.style.width = p * 100 + '%';
       }
     }

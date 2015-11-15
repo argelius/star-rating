@@ -15,26 +15,29 @@
     </style>
 
     <script>
+      var API_KEY = 'b5c666660c28c40083ea3a690af9bee5';
+
       angular.module('app', [])
         .controller('MovieController', function($http, $q) {
-          var imdbIds = [
-            'tt0120915',
-            'tt0121765',
-            'tt0121766',
-            'tt0076759',
-            'tt0080684',
-            'tt0086190',
-            'tt2488496'
+          var movieIds = [
+            '11',
+            '1891',
+            '1892',
+            '1893',
+            '1894',
+            '1895',
+            '140607'
           ];
 
-          var promises = imdbIds.map(function(id) {
-            return $http.jsonp('http://www.omdbapi.com/?i=' + id + '&plot=short&r=json&callback=JSON_CALLBACK');
+          var promises = movieIds.map(function(id) {
+            return $http.jsonp('http://api.themoviedb.org/3/movie/' + id + '?api_key=' + API_KEY + '&callback=JSON_CALLBACK');
           });
 
           $q.all(promises)
             .then(
               function(movies) {
-                this.movies = movies.map(function(movie) { return movie.data; });;
+                console.log(movies[0].data);
+                this.movies = movies.map(function(movie) { return movie.data; });
               }.bind(this),
               function(error) {
                 alert('Unable to fetch movie data: ' + error);
@@ -47,14 +50,14 @@
     <h1>Star Wars Ratings</h1>
 
     <div ng-repeat="movie in movies.movies">
-      <h2>{{ movie.Title }}</h2>
-      <img ng-src="{{ movie.Poster }}"></img>
+      <h2>{{ movie.title }}</h2>
+      <img ng-src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}"></img>
       <ul>
-        <li>Released {{ movie.Released }}</li>
-        <li>Written by {{ movie.Writer }}</li>
-        <li>Directed by {{ movie.Director }}</li>
-        <li>Rating: <star-rating max="10" ng-value="{{ movie.imdbRating }}"></star-rating> ({{ movie.imdbRating}})</li>
+        <li>Released {{ movie.release_date }}</li>
+        <li>Rating: <star-rating max="10" ng-value="{{ movie.vote_average }}"></star-rating> ({{ movie.vote_average}})</li>
       </ul>
+
+      <p>{{ movie.overview }}</p>
     </div>
   </body>
 </html>
