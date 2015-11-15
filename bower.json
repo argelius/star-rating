@@ -1,5 +1,5 @@
 {
-  "name": "star-rating",
+  "name": "star-rating-tag",
   "description": "A Web Component that displays rating using stars. Number of stars is customizable and it supports fractions.",
   "main": "index.js",
   "authors": [
