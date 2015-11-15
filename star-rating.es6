@@ -5,7 +5,7 @@ const doc = currentScript.ownerDocument;
 
 class StarRating extends HTMLElement {
   createdCallback() {
-    const template = doc.querySelector('template');
+    const template = doc.querySelector('template') || document.createElement('template');
     const clone = document.importNode(template.content, true);
 
     this.createShadowRoot();
@@ -19,10 +19,7 @@ class StarRating extends HTMLElement {
   }
 
   attributeChangedCallback(name, from, to) {
-    if (name === 'max') {
-      throw new Error('The maximum value can\'t be changed.');
-    }
-    else if (name === 'value') {
+    if (name === 'value') {
       this._colorStars();
     }
   }

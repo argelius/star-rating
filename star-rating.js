@@ -25,7 +25,7 @@ var StarRating = (function (_HTMLElement) {
     value: function createdCallback() {
       var _this2 = this;
 
-      var template = doc.querySelector('template');
+      var template = doc.querySelector('template') || document.createElement('template');
       var clone = document.importNode(template.content, true);
 
       this.createShadowRoot();
