@@ -23,7 +23,7 @@ $ bower install star-rating-tag
 or with `npm`:
 
 ```bash
-$ npm install star-rating
+$ npm install star-rating-tag
 ```
 
 Include it in your page:
