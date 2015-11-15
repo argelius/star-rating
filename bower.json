@@ -1,0 +1,21 @@
+{
+  "name": "star-rating",
+  "description": "A Web Component that displays rating using stars. Number of stars is customizable and it supports fractions.",
+  "main": "index.js",
+  "authors": [
+    "Andreas Argelius <andreas@argeli.us>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "web-components"
+  ],
+  "homepage": "https://github.com/argelius/star-rating",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
